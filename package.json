@@ -29,7 +29,7 @@
   },
   "lint-staged": {
     "*.{js,ts}": "eslint --cache --fix",
-    "*.ts": "bash -c tsc --noEmit",
+    "*.ts": "tsc --noEmit",
     "*.{js,css,json,md}": "prettier --write"
   }
 }
