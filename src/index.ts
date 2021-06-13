@@ -1,10 +1,19 @@
 import { exec } from "child_process";
 
-exec("curl https://api.github.com/users/defunkt", (error, stdout, stderr) => {
-  if (error) {
-    console.error(`exec error:\n${error.message}`);
-    return;
-  }
-  console.log(`stdout:\n${stdout}`);
-  console.error(`stderr:\n${stderr}`);
-});
+interface IExecCommand {
+  stdout: string;
+  stderr: string;
+}
+
+export const execCommand = (command: string): Promise<IExecCommand> => {
+  return new Promise((resolve, reject) => {
+    exec(command, (error, stdout, stderr) => {
+      if (error) reject(error);
+
+      resolve({
+        stdout,
+        stderr,
+      });
+    });
+  });
+};

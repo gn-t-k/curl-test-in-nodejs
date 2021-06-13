@@ -4,7 +4,8 @@
   "include": [
     "src/**/*.ts",
     ".eslintrc.js",
-    "lint-staged.config.js"
+    "lint-staged.config.js",
+    "jest.config.js"
   ],
   "exclude": [
     "node_modules",
